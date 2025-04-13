@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced AI Bot - Fullscreen</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="Advanced AI Logo.png" type="image/png" />
+</head>
+<body class="full-screen">
+  <div class="bot-header">
+    <img src="Advanced AI Logo.png" alt="Advanced AI Logo" class="bot-logo" />
+    <h1>Advanced AI Assistant</h1>
+  </div>
+
+  <div id="chat-container" class="chat-container">
+    <div class="bot-message">
+      Hi there! I'm the Advanced AI Bot. Below are links to my recent portfolio projects, 
+      and my resume, and this Bot you are using right now is another one of my portfolio projects
+    </div>
+
+    <div class="quick-replies">
+      <button class="neon-button" onclick="window.open('https://concierge-bot.glitch.me/fullscreen.html', '_blank')">
+        <img src="concierge-logo.png" alt="Concierge Icon" class="icon-left" />
+        Hotel Concierge Bot Demo
+      </button>
+
+      <button class="neon-button" onclick="window.open('https://dholc2021.github.io/FINALSOP/', '_blank')">
+        <img src="sop-logo.svg" alt="SOP Icon" class="icon-left" />
+        SOP Assistant Demo
+      </button>
+
+      <button class="neon-button" onclick="window.open('https://docs.google.com/document/d/1fDsVUhZKkmifhgAQ0IDNQI6oKEr1k6wLtPhXX17Mqbc/edit?usp=sharing', '_blank')">
+        📄 View Resume
+      </button>
+    </div>
+  </div>
+
+  <div class="language-controls">
+    <select id="language-select">
+      <option value="en">🇺🇸 English</option>
+      <option value="es">🇪🇸 Spanish</option>
+      <option value="fr">🇫🇷 French</option>
+      <option value="de">🇩🇪 German</option>
+      <option value="zh">🇨🇳 Chinese</option>
+    </select>
+    <button onclick="toggleTranslateMode()">🌐 Toggle Translate</button>
+  </div>
+
+  <div class="voice-controls">
+    <button onclick="startListening()">🎤 Speak</button>
+    <button onclick="readBotMessage()">🔊 Read</button>
+  </div>
+
+  <div class="input-container">
+    <input type="text" id="user-input" placeholder="Type your message..." />
+    <button id="send-btn">Send</button>
+  </div>
+
+  <footer class="footer-note">
+    <p>Note: This bot is running on free-tier hosting until paid services are added.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

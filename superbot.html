@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced AI Superbot</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image:
+        linear-gradient(to right, rgba(0, 255, 0, 0.20) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 0, 0.20) 1px, transparent 1px);
+      background-size: 40px 40px;
+      font-family: 'Balsamiq Sans', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    #toggle-chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #00FF00;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #00FF00;
+      color: #000;
+      font-size: 1.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .main-logo {
+      width: 180px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #00FF00;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .chat-container {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px solid #00FF00;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 12px #00FF00;
+      margin-bottom: 10px;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .bot-message, .user-message {
+      background: #222;
+      color: #fff;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 1px solid #00FF00;
+    }
+
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .bot-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .neon-button {
+      font-family: 'Balsamiq Sans', sans-serif;
+      color: #00FF00;
+      background: transparent;
+      border: 2px solid #00FF00;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+      box-shadow: inset 0 0 0.5em 0 #00FF00, 0 0 0.5em 0 #00FF00;
+    }
+
+    .neon-button::before {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      background: #00FF00;
+      top: 120%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+      filter: blur(1em);
+      opacity: 0.7;
+    }
+
+    .neon-button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 0 2em 0.5em #00FF00;
+      opacity: 0;
+      background-color: #00FF00;
+      z-index: -1;
+      transition: opacity 100ms linear;
+    }
+
+    .neon-button:hover,
+    .neon-button:focus {
+      color: #000;
+      text-shadow: none;
+    }
+
+    .neon-button:hover::before,
+    .neon-button:focus::before {
+      opacity: 1;
+    }
+
+    .neon-button:hover::after,
+    .neon-button:focus::after {
+      opacity: 1;
+    }
+
+    .input-container {
+      display: flex;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid #00FF00;
+      border-radius: 8px 0 0 8px;
+      background-color: #111;
+      color: #00FF00;
+      font-size: 1rem;
+    }
+
+    #send-btn {
+      padding: 10px 16px;
+      border: 2px solid #00FF00;
+      border-radius: 0 8px 8px 0;
+      background-color: transparent;
+      color: #00FF00;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .language-controls,
+    .voice-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .language-controls select {
+      background-color: #111;
+      color: #00FF00;
+      border: 2px solid #00FF00;
+      border-radius: 8px;
+      padding: 8px;
+      font-size: 1rem;
+      box-shadow: inset 0 0 0.5em 0 #00FF00, 0 0 0.5em 0 #00FF00;
+    }
+
+    #mobile-control-toggle {
+      display: none;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      padding: 6px 10px;
+    }
+
+    @media (max-width: 600px) {
+      #mobile-control-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle-chat-btn" onclick="toggleChatVisibility()">💬</button>
+
+  <div class="container" id="chat-ui">
+    <img src="superbot-logo.png" alt="Superbot Logo" class="main-logo">
+    <h1>Advanced AI Assistant</h1>
+
+    <div id="chat-container" class="chat-container">
+      <div class="bot-message">Hi there! I'm the Advanced AI Bot. Want to see what I can build for your business?</div>
+    </div>
+
+    <div class="quick-replies">
+      <button class="neon-button" onclick="handleQuickReply('real estate')">
+        <img src="real-estate-logo.svg" class="bot-icon"> Real Estate Bot Demo
+      </button>
+      <button class="neon-button" onclick="handleQuickReply('hotel concierge')">
+        <img src="concierge-logo.png" class="bot-icon"> Hotel Concierge Bot Demo
+      </button>
+      <button class="neon-button" onclick="handleQuickReply('sop assistant')">
+        <img src="sop-logo.svg" class="bot-icon"> SOP Assistant Demo
+      </button>
+      <button class="neon-button" onclick="handleQuickReply('pricing')">
+        <img src="pricing-icon.png" class="bot-icon"> Pricing Info
+      </button>
+      <button class="neon-button pulse" onclick="handleQuickReply('book call')">
+        <img src="call-icon.png" class="bot-icon"> Book a Free Call
+      </button>
+    </div>
+
+    <button id="mobile-control-toggle" class="neon-button" onclick="toggleControls()">🛠️ Show/Hide Controls</button>
+
+    <div class="language-controls">
+      <select id="language-select">
+        <option value="en">🇺🇸 English</option>
+        <option value="es">🇪🇸 Spanish</option>
+        <option value="fr">🇫🇷 French</option>
+        <option value="de">🇩🇪 German</option>
+        <option value="zh">🇨🇳 Chinese</option>
+      </select>
+      <button class="neon-button" onclick="toggleTranslateMode()">🌐 Toggle Translate</button>
+    </div>
+
+    <div class="voice-controls">
+      <button class="neon-button" onclick="startListening()">🎤 Speak</button>
+      <button class="neon-button" onclick="readBotMessage()">🔊 Read</button>
+    </div>
+
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    function toggleChatVisibility() {
+      const chatUI = document.getElementById('chat-ui');
+      const toggleBtn = document.getElementById('toggle-chat-btn');
+      if (chatUI.style.display === 'none') {
+        chatUI.style.display = 'flex';
+        toggleBtn.textContent = '➖';
+      } else {
+        chatUI.style.display = 'none';
+        toggleBtn.textContent = '💬';
+      }
+    }
+
+    function toggleControls() {
+      const lang = document.querySelector('.language-controls');
+      const voice = document.querySelector('.voice-controls');
+      const isHidden = lang.style.display === 'none';
+      lang.style.display = isHidden ? 'flex' : 'none';
+      voice.style.display = isHidden ? 'flex' : 'none';
+    }
+
+    if (window.innerWidth < 600) {
+      document.getElementById('chat-ui').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
