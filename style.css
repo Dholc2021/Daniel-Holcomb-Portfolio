@@ -245,7 +245,6 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 4px var(--clr-neon);
 }
-
 @media screen and (max-width: 768px) {
   .quick-replies {
     flex-direction: column;
