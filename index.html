@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced AI Bot Widget</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      background-image:
+        linear-gradient(to right, rgba(0, 255, 0, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 0, 0.2) 1px, transparent 1px);
+      background-size: 40px 40px;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    #bubble-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #0f0;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #0f0;
+      color: #000;
+      font-size: 1.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bot-widget {
+      width: 360px;
+      background: rgba(0, 0, 0, 0.95);
+      border: 2px solid #0f0;
+      border-radius: 12px;
+      margin: 40px auto;
+      box-shadow: 0 0 20px #0f0;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 9998;
+      display: none;
+    }
+
+    .widget-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 2px solid #0f0;
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .widget-header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .widget-header img.bot-logo {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    .widget-title {
+      color: #0f0;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .chat-container {
+      padding: 15px;
+    }
+
+    .bot-message {
+      background: #222;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #0f0;
+    }
+
+    .quick-replies button {
+      background: transparent;
+      color: #0f0;
+      border: 2px solid #0f0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .quick-replies button:hover {
+      background: rgba(0, 255, 0, 0.1);
+      box-shadow: 0 0 10px #0f0;
+    }
+
+    .pulse {
+      animation: pulseGlow 1.8s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 5px #0f0; }
+      50% { box-shadow: 0 0 20px #0f0; }
+      100% { box-shadow: 0 0 5px #0f0; }
+    }
+
+    .bot-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      padding: 10px;
+      border-top: 2px solid #0f0;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 8px 0 0 8px;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    #send-btn {
+      padding: 8px 12px;
+      background: #0f0;
+      color: #000;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .voice-controls {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .voice-controls button {
+      background: transparent;
+      border: 2px solid #0f0;
+      color: #0f0;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .voice-controls button:hover {
+      background: rgba(0,255,0,0.1);
+      box-shadow: 0 0 8px #0f0;
+    }
+  </style>
+</head>
+<body>
+  <button id="bubble-toggle" onclick="toggleWidgetVisibility()">💬</button>
+
+  <div id="bot-widget" class="bot-widget">
+    <div class="widget-header">
+<<<<<<< HEAD
+      <div class="widget-header-left">
+        <img src="superbot-logo.png" alt="Advanced AI Logo" class="bot-logo small" />
+        <span class="widget-title">Need Help?</span>
+=======
+      <img src="Advanced AI Logo.png" alt="Advanced AI Logo" class="bot-logo small" />
+      <span class="widget-title">Need Help?</span>
+    </div>
+    <div id="chat-container" class="chat-container widget-mode">
+      <div class="bot-message">Hi there! I'm the Advanced AI Bot. Below are links to a couple projects I have Built, my Resume, and this Bot itself is my project as well.</div>
+      <div class="quick-replies">
+        <button onclick="handleQuickReply('real estate')">Real Estate Bot Demo</button>
+        <button onclick="handleQuickReply('hotel concierge')">Hotel Concierge Bot Demo</button>
+        <button onclick="handleQuickReply('sop assistant')">SOP Assistant Demo</button>
+        <button onclick="handleQuickReply('pricing')">Pricing Info</button>
+        <button onclick="handleQuickReply('book call')">Book a Free Call</button>
+>>>>>>> 1a0503d6ac99a8bb76650f09433fe0ed61f61ef2
+      </div>
+    </div>
+
+    <div id="chat-container" class="chat-container widget-mode">
+
+      <div class="bot-message">Hi there! I'm the Advanced AI Bot. Want to see what I can build for your business?</div>
+     
+      <div class="quick-replies">
+        
+        <button onclick="handleQuickReply('real estate')">
+          <img src="real-estate-logo.svg" class="bot-icon"> Real Estate Bot Demo
+        </button>
+       
+        <button onclick="handleQuickReply('hotel concierge')">
+          <img src="concierge-logo.png" class="bot-icon"> Hotel Concierge Bot Demo
+        </button>
+       
+        <button onclick="handleQuickReply('sop assistant')">
+          <img src="sop-logo.svg" class="bot-icon"> SOP Assistant Demo
+        </button>
+        
+        <button onclick="handleQuickReply('pricing')">
+          <img src="pricing-icon.png" class="bot-icon"> Pricing Info
+        </button>
+        
+        <button onclick="handleQuickReply('book call')" class="pulse">
+          <img src="BookAFreeCall.png" class="bot-icon"> Book a Free Call/Zoom
+        </button>
+       
+        <button onclick="handleQuickReply('Contact Info')">
+          <img src="ContactUs-Logo.png" class="bot-icon"> Contact us(Form/Email)
+        </button>
+        
+        <button onclick="handleQuickReply('Translation')"></button>>
+          <img src="Translation-Services-Logo.png" class="bot-icon"> Translation Services
+        </button>
+      
+      </div>
+    </div>
+    <div class="voice-controls">
+      <button onclick="startListening()">🎤 Speak</button>
+      <button onclick="readBotMessage()">🔊 Read</button>
+    </div>
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleWidgetVisibility() {
+      const widget = document.getElementById('bot-widget');
+      widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function startListening() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+      recognition.start();
+      recognition.onresult = function(event) {
+        document.getElementById('user-input').value = event.results[0][0].transcript;
+      };
+    }
+
+    function readBotMessage() {
+      const msg = new SpeechSynthesisUtterance();
+      msg.text = document.querySelector('.bot-message').innerText;
+      window.speechSynthesis.speak(msg);
+    }
+
+    // Start with widget hidden
+    document.getElementById('bot-widget').style.display = 'none';
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
