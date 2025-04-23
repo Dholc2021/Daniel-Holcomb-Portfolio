@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advanced AI Bot Widget</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="icon" href="Advanced AI Logo.png" type="image/png" />
   <style>
     body {
       margin: 0;
@@ -40,18 +40,19 @@
 
     .bot-widget {
       width: 360px;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
       background: rgba(0, 0, 0, 0.95);
       border: 2px solid #0f0;
       border-radius: 12px;
-      margin: 40px auto;
       box-shadow: 0 0 20px #0f0;
-      overflow: hidden;
       transition: all 0.3s ease-in-out;
       position: fixed;
-      bottom: 90px;
+      top: 10px;
       right: 20px;
       z-index: 9998;
       display: none;
+      scrollbar-width: thin;
     }
 
     .widget-header {
@@ -92,37 +93,32 @@
       border: 1px solid #0f0;
     }
 
-    .quick-replies button {
-      background: transparent;
-      color: #0f0;
-      border: 2px solid #0f0;
-      border-radius: 8px;
-      padding: 8px 10px;
-      margin: 4px;
-      font-size: 0.9rem;
+    .neon-button {
+      background: black;
+      color: #00FF00;
+      border: 2px solid #00FF00;
+      font-family: 'Balsamiq Sans', sans-serif;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 1rem;
       cursor: pointer;
-      display: flex;
+      text-align: center;
+      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: 0.3s ease-in-out;
+      gap: 10px;
+      box-shadow: 0 0 10px #00FF00;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 10px;
+      width: 100%;
     }
 
-    .quick-replies button:hover {
-      background: rgba(0, 255, 0, 0.1);
-      box-shadow: 0 0 10px #0f0;
+    .neon-button:hover {
+      background-color: rgba(0, 255, 0, 0.1);
+      box-shadow: 0 0 20px #00FF00;
     }
 
-    .pulse {
-      animation: pulseGlow 1.8s infinite;
-    }
-
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 5px #0f0; }
-      50% { box-shadow: 0 0 20px #0f0; }
-      100% { box-shadow: 0 0 5px #0f0; }
-    }
-
-    .bot-icon {
+    .icon-left {
       width: 20px;
       height: 20px;
     }
@@ -181,66 +177,34 @@
 
   <div id="bot-widget" class="bot-widget">
     <div class="widget-header">
-<<<<<<< HEAD
       <div class="widget-header-left">
-        <img src="superbot-logo.png" alt="Advanced AI Logo" class="bot-logo small" />
+        <img src="Advanced AI Logo.png" alt="Advanced AI Logo" class="bot-logo small" />
         <span class="widget-title">Need Help?</span>
-=======
-      <img src="Advanced AI Logo.png" alt="Advanced AI Logo" class="bot-logo small" />
-      <span class="widget-title">Need Help?</span>
-    </div>
-    <div id="chat-container" class="chat-container widget-mode">
-      <div class="bot-message">Hi there! I'm the Advanced AI Bot. Below are links to a couple projects I have Built, my Resume, and this Bot itself is my project as well.</div>
-      <div class="quick-replies">
-        <button onclick="handleQuickReply('real estate')">Real Estate Bot Demo</button>
-        <button onclick="handleQuickReply('hotel concierge')">Hotel Concierge Bot Demo</button>
-        <button onclick="handleQuickReply('sop assistant')">SOP Assistant Demo</button>
-        <button onclick="handleQuickReply('pricing')">Pricing Info</button>
-        <button onclick="handleQuickReply('book call')">Book a Free Call</button>
->>>>>>> 1a0503d6ac99a8bb76650f09433fe0ed61f61ef2
       </div>
     </div>
 
     <div id="chat-container" class="chat-container widget-mode">
-
-      <div class="bot-message">Hi there! I'm the Advanced AI Bot. Want to see what I can build for your business?</div>
-     
-      <div class="quick-replies">
-        
-        <button onclick="handleQuickReply('real estate')">
-          <img src="real-estate-logo.svg" class="bot-icon"> Real Estate Bot Demo
-        </button>
-       
-        <button onclick="handleQuickReply('hotel concierge')">
-          <img src="concierge-logo.png" class="bot-icon"> Hotel Concierge Bot Demo
-        </button>
-       
-        <button onclick="handleQuickReply('sop assistant')">
-          <img src="sop-logo.svg" class="bot-icon"> SOP Assistant Demo
-        </button>
-        
-        <button onclick="handleQuickReply('pricing')">
-          <img src="pricing-icon.png" class="bot-icon"> Pricing Info
-        </button>
-        
-        <button onclick="handleQuickReply('book call')" class="pulse">
-          <img src="BookAFreeCall.png" class="bot-icon"> Book a Free Call/Zoom
-        </button>
-       
-        <button onclick="handleQuickReply('Contact Info')">
-          <img src="ContactUs-Logo.png" class="bot-icon"> Contact us(Form/Email)
-        </button>
-        
-        <button onclick="handleQuickReply('Translation')"></button>>
-          <img src="Translation-Services-Logo.png" class="bot-icon"> Translation Services
-        </button>
-      
-      </div>
+      <div class="bot-message">Hi there! I'm the Advanced AI Bot. Below are links to my recent portfolio projects, 
+        and my resume, and this Bot you are using right now is another one of my portfolio projects.</div>
+      <button class="neon-button" onclick="window.open('https://concierge-bot.glitch.me/fullscreen.html')">
+        <img src="concierge-logo.png" class="icon-left" /> Hotel Concierge Bot Demo
+      </button>
+      <button class="neon-button" onclick="window.open('https://dholc2021.github.io/FINALSOP/')">
+        <img src="sop-logo.svg" class="icon-left" /> SOP Assistant Demo
+      </button>
+      <button class="neon-button" onclick="window.open('Resume.html')">
+        📄 View Resume
+      </button>
+      <button class="neon-button" onclick="window.open('https://dholc2021.github.io/portfolio-rebuild-master/')">
+        <img src="sop-logo.svg" class="icon-left" /> Web Development Portfolio
+      </button>
     </div>
+
     <div class="voice-controls">
       <button onclick="startListening()">🎤 Speak</button>
       <button onclick="readBotMessage()">🔊 Read</button>
     </div>
+
     <div class="input-container">
       <input type="text" id="user-input" placeholder="Type your message..." />
       <button id="send-btn">Send</button>
@@ -250,7 +214,7 @@
   <script>
     function toggleWidgetVisibility() {
       const widget = document.getElementById('bot-widget');
-      widget.style.display = widget.style.display === 'none' ? 'block' : 'none';
+      widget.style.display = widget.style.display === 'none' || widget.style.display === '' ? 'block' : 'none';
     }
 
     function startListening() {
@@ -268,7 +232,6 @@
       window.speechSynthesis.speak(msg);
     }
 
-    // Start with widget hidden
     document.getElementById('bot-widget').style.display = 'none';
   </script>
   <script src="script.js"></script>
