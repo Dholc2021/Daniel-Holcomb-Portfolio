@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daniel Holcomb – Resume</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Times New Roman', serif;
+      color: #000;
+      line-height: 1.4;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+    }
+    header p.tagline {
+      font-size: 16px;
+      font-style: italic;
+      margin: 5px 0;
+    }
+    header p.contact {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+    header p.contact a {
+      color: #0000EE;
+      text-decoration: underline;
+    }
+
+    /* Only these four section titles turn green */
+    section.highlight-header > h2 {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #00FF00;
+      margin-bottom: 10px;
+    }
+    /* All other h2 remain black */
+    section > h2 {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    /* Job entries styling */
+    .item-title {
+      font-weight: bold;
+      color: #000;
+    }
+    .item-subtitle {
+      color: #000;
+    }
+    .item-duration {
+      font-style: italic;
+      float: right;
+      color: #000;
+    }
+    .clear {
+      clear: both;
+    }
+
+    /* Lists */
+    ul {
+      margin: 5px 0 10px 20px;
+    }
+    ul li {
+      color: #000;
+    }
+
+    /* Links */
+    a {
+      color: #0000EE;
+      text-decoration: underline;
+    }
+
+    /* Emphasis */
+    b, strong { font-weight: bold; }
+    i, em { font-style: italic; }
+    u { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daniel Holcomb</h1>
+    <p class="tagline">
+      Innovative developer with experience building AI-powered applications and chatbots.  
+      Combines strong customer service background with technical skills in JavaScript, Node.js, and API integration.
+    </p>
+    <p class="contact">
+      Spokane Valley, WA 99216 | (509) 342-8274 | 
+      <a href="mailto:DHolc2025@gmail.com">DHolc2025@gmail.com</a> | 
+      <a href="#">LinkedIn</a>
+    </p>
+  </header>
+
+  <section class="highlight-header">
+    <h2>Experience</h2>
+    <div class="item">
+      <span class="item-title">Delivery Driver</span> – Grubhub (Self-Employed)
+      <span class="item-duration">2021 – 2023</span>
+      <div class="clear"></div>
+    </div>
+    <div class="item">
+      <span class="item-title">Driver</span> – UBER TECHNOLOGIES, INC. (Self-Employed)
+      <span class="item-duration">2019 – 2023</span>
+      <div class="clear"></div>
+    </div>
+    <div class="item">
+      <span class="item-title">Warehouse Worker/CDL Truck Driver</span> – ADP, Grenada, MS
+      <span class="item-duration">2017 – 2019</span>
+      <div class="clear"></div>
+    </div>
+    <div class="item">
+      <span class="item-title">Long Haul Truck Driver</span> – K&B Transportation
+      <span class="item-duration">2014 – 2017</span>
+      <div class="clear"></div>
+    </div>
+    <div class="item">
+      <span class="item-title">Call Center Representative</span> – West Corporation, Spokane, WA
+      <span class="item-duration">2013 – 2014</span>
+      <div class="clear"></div>
+    </div>
+  </section>
+
+  <section class="highlight-header">
+    <h2>Education</h2>
+    <div class="item">
+      <span class="item-title">Associate's Degree in Computer Programming and Analysis</span>,  
+      St. Petersburg College, Saint Petersburg, FL
+      <span class="item-duration">September 2021 – Present</span>
+      <div class="clear"></div>
+    </div>
+    <div class="item">
+      <span class="item-title">Computer Science/Cybersecurity and Information Assurance Studies</span>,  
+      Western Governors University, Salt Lake City, UT
+      <span class="item-duration">September 2018 – September 2020</span>
+      <div class="clear"></div>
+    </div>
+  </section>
+
+  <section class="highlight-header">
+    <h2>Projects</h2>
+    <div class="item">
+      <span class="item-title">AI Concierge Chatbot</span> | Frontend & Backend Developer<br>
+      <a href="https://concierge-bot.glitch.me/fullscreen.html">
+        https://concierge-bot.glitch.me/fullscreen.html
+      </a>
+      <span class="item-duration">March 2025</span>
+      <div class="clear"></div>
+      <ul>
+        <li>Developed a full-stack AI chatbot for extended-stay hotels using JavaScript, HTML/CSS, and Node.js</li>
+        <li>Integrated OpenAI’s ChatGPT API for natural language understanding and contextual responses</li>
+        <li>Implemented live weather integration with OpenWeatherMap API for location-specific forecasts</li>
+        <li>Built translation capabilities to serve international guests</li>
+        <li>Designed a responsive, branded UI with quick-action buttons</li>
+        <li>Deployed on Glitch with secure environment-variable handling</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <span class="item-title">SOP AI Assistant</span> | Frontend & Backend Developer<br>
+      <a href="https://dholc2021.github.io/FINALSOP/">
+        https://dholc2021.github.io/FINALSOP/
+      </a>
+      <span class="item-duration">February 2025</span>
+      <div class="clear"></div>
+      <ul>
+        <li>Built a custom AI assistant to surface Standard Operating Procedures (SOPs)</li>
+        <li>Integrated with Loom videos and documentation for training</li>
+        <li>Implemented natural-language search across procedure docs</li>
+        <li>Created a sidebar navigation with chat history</li>
+        <li>Ensured responsive UI for desktop and mobile</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <span class="item-title">Web Development Portfolio</span><br>
+      <a href="https://dholc2021.github.io/portfolio-rebuild-master/index.html">
+        https://dholc2021.github.io/portfolio-rebuild-master/index.html
+      </a>
+      <span class="item-duration">2020 – 2023</span>
+      <div class="clear"></div>
+      <ul>
+        <li>Used Three.js to build a 3D globe</li>
+        <li>Built neon-style CSS buttons site-wide</li>
+        <li>Created a Nancy’s Donuts site with HTML/CSS/JS animations</li>
+        <li>Developed a Netflix-style movie search site</li>
+        <li>Integrated NASA API for space imagery and favorites</li>
+        <li>Built a 3-dice roller and a quote generator with APIs</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="highlight-header">
+    <h2>Professional Experience</h2>
+    <div class="item">
+      <span class="item-title">Customer Service Representative</span>,
+      <span class="item-subtitle">Qualfon – Billings, MT</span>
+      <span class="item-duration">December 2021 – 2023</span>
+      <div class="clear"></div>
+      <ul>
+        <li>Provide telephone customer service to dental providers and insurance customers</li>
+        <li>Resolve complex client issues while maintaining high satisfaction ratings</li>
+        <li>Utilize technical systems to access and update customer information</li>
+        <li>Apply problem-solving skills to address diverse customer needs</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <span class="item-title">AI Agent and Automation Builder/Specialist</span>
+      <span class="item-duration">January 2023 – Present</span>
+      <div class="clear"></div>
+      <ul>
+        <li>Develop custom chatbot solutions for small businesses and individuals</li>
+        <li>Implement AI integrations for automation and customer service enhancements</li>
+        <li>Provide technical support and troubleshooting services</li>
+        <li>Build and deploy web-based applications for clients</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="highlight-header">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>Programming Languages: JavaScript, HTML, CSS</li>
+      <li>Frameworks & Libraries: Node.js, Express.js</li>
+      <li>AI Integration: OpenAI API, ChatGPT integration, prompt engineering</li>
+      <li>API Integration: RESTful APIs, OpenWeather API, Translation services</li>
+      <li>Tools & Platforms: GitHub, VS Code, Glitch, Postman</li>
+      <li>Web Development: Responsive design, frontend & backend integration</li>
+      <li>Other: CompTIA A+ certified, troubleshooting, technical support</li>
+    </ul>
+  </section>
+
+  <section class="highlight-header">
+    <h2>Certifications</h2>
+    <ul>
+      <li>CompTIA A+ (August 2020 – August 2023)</li>
+      <li>CIW Web Development Foundations (January 2018 – no expiration)</li>
+      <li>JavaScript &amp; Web Development – Udemy Certification (2023)</li>
+    </ul>
+  </section>
+
+  <section class="highlight-header">
+    <h2>Additional Skills</h2>
+    <ul>
+      <li>Strong problem-solving and analytical thinking</li>
+      <li>Excellent verbal and written communication skills</li>
+      <li>Self-motivated with ability to work independently and in teams</li>
+      <li>Customer-focused with emphasis on user experience</li>
+      <li>Adaptable to changing priorities and technologies</li>
+    </ul>
+  </section>
+</body>
+</html>
