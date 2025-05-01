@@ -203,7 +203,20 @@
     <div class="voice-controls">
       <button onclick="startListening()">🎤 Speak</button>
       <button onclick="readBotMessage()">🔊 Read</button>
-    </div>
+      <!-- NEW: Language dropdown -->
+  <select id="language-select" class="neon-button">
+    <option value="en">US English</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <!-- add any others you support -->
+  </select>
+
+  <!-- NEW: Toggle-Translate -->
+  <button id="toggle-translate-btn" class="neon-button">
+    🌍 Toggle Translate
+  </button>
+</div>
+    
 
     <div class="input-container">
       <input type="text" id="user-input" placeholder="Type your message..." />
@@ -211,29 +224,7 @@
     </div>
   </div>
 
-  <script>
-    function toggleWidgetVisibility() {
-      const widget = document.getElementById('bot-widget');
-      widget.style.display = widget.style.display === 'none' || widget.style.display === '' ? 'block' : 'none';
-    }
 
-    function startListening() {
-      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-      recognition.lang = 'en-US';
-      recognition.start();
-      recognition.onresult = function(event) {
-        document.getElementById('user-input').value = event.results[0][0].transcript;
-      };
-    }
-
-    function readBotMessage() {
-      const msg = new SpeechSynthesisUtterance();
-      msg.text = document.querySelector('.bot-message').innerText;
-      window.speechSynthesis.speak(msg);
-    }
-
-    document.getElementById('bot-widget').style.display = 'none';
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
