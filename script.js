@@ -65,58 +65,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ——— CORE FUNCTIONS ———
 
-  async function sendMessage() {
-    const text = inputEl.value.trim();
-    if (!text) return;
+  // ——— REPLACE YOUR EXISTING sendMessage(...) WITH THIS ———
+async function sendMessage() {
+  const text = inputEl.value.trim();
+  if (!text) return;
 
-    addMessage(`You: ${text}`, 'user-message');
-    inputEl.value = '';
+  console.log("🔸 sendMessage()", { text, translateMode, targetLang });
+  addMessage(`You: ${text}`, 'user-message');
+  inputEl.value = '';
 
-    if (translateMode === 'auto') {
-      const t = await translateText(text, targetLang);
-      console.log('Translated to EN →', t);
-      callBotAPI(t);
-    }
-    else if (translateMode === 'live') {
-      const t = await translateText(text, targetLang);
-      addMessage(`Guest: ${text}\nStaff (${targetLang.toUpperCase()}): ${t}`, 'bot-message');
-    }
-    else {
-      callBotAPI(text);
-    }
+  if (translateMode === 'auto') {
+    const t = await translateText(text, targetLang);
+    console.log("   ↳ translated to EN:", t);
+    callBotAPI(t);
   }
-
-  function addMessage(txt, cls) {
-    const msg = document.createElement('div');
-    msg.className = cls;
-    msg.textContent = txt;
-    chat.appendChild(msg);
-    chat.scrollTop = chat.scrollHeight;
+  else if (translateMode === 'live') {
+    const t = await translateText(text, targetLang);
+    addMessage(
+      `Guest: ${text}\nStaff (${targetLang.toUpperCase()}): ${t}`,
+      'bot-message'
+    );
   }
+  else {
+    callBotAPI(text);
+  }
+}
 
-  function callBotAPI(msg) {
-    fetch('https://advanced-ai-backend.onrender.com/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: msg })
+// ——— REPLACE YOUR EXISTING callBotAPI(...) WITH THIS ———
+function callBotAPI(msg) {
+  console.log("🔸 callBotAPI()", msg);
+  fetch("https://advanced-ai-backend.onrender.com/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: msg })
+  })
+    .then(res => {
+      console.log("   ↳ status:", res.status);
+      return res.json();
     })
-      .then(r => r.json())
-      .then(d => addMessage(`Bot: ${d.reply}`, 'bot-message'))
-      .catch(e => {
-        console.error(e);
-        addMessage('Oops! The bot is currently unavailable.', 'bot-message');
-      });
-  }
-
-  async function translateText(q, tgt) {
-    const res = await fetch('https://libretranslate.de/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q, source: 'auto', target: tgt, format: 'text' })
+    .then(data => {
+      console.log("   ↳ reply:", data.reply);
+      addMessage("Bot: " + data.reply, "bot-message");
+    })
+    .catch(err => {
+      console.error("   ↳ fetch error", err);
+      addMessage("Oops! The bot is currently unavailable.", "bot-message");
     });
-    const { translatedText } = await res.json();
-    return translatedText;
-  }
+}
 
   function startListening() {
     const recog = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
