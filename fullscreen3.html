@@ -45,15 +45,20 @@
   </div>
 
   <div class="language-controls">
-    <select id="language-select">
+    <select id="language-select" class="neon-button">
       <option value="en">🇺🇸 English</option>
       <option value="es">🇪🇸 Spanish</option>
       <option value="fr">🇫🇷 French</option>
       <option value="de">🇩🇪 German</option>
       <option value="zh">🇨🇳 Chinese</option>
     </select>
-    <button onclick="toggleTranslateMode()">🌐 Toggle Translate</button>
+  
+    <button id="toggle-translate-btn" class="neon-button">
+      🌐 Toggle Translate
+    </button>
   </div>
+  
+
 
   <div class="voice-controls">
     <button onclick="startListening()">🎤 Speak</button>
