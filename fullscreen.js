@@ -112,6 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  console.log("▶️ about to call fetch to /api/chat");
+console.log("   window.fetch ===", window.fetch);
+
   async function translateText(text, target) {
     const res = await fetch('https://libretranslate.de/translate', {
       method: 'POST',
