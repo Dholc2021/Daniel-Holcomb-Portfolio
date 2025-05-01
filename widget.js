@@ -1,7 +1,7 @@
-// script.js
-
 // 1) Prove the file loaded
-console.log("⚙️ script.js loaded");
+console.log("⚙️ widget.js loaded");
+// …
+
 
 // 2) Wait for the DOM to be ready
 document.addEventListener("DOMContentLoaded", () => {
