@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function translateText(text, target) {
-    const res = await fetch('https://libretranslate.de/translate', {
+    const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ q: text, source: 'auto', target: target, format: 'text' })
