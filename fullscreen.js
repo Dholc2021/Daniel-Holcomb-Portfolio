@@ -90,10 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     chat.appendChild(msg);
     chat.scrollTop = chat.scrollHeight;
   }
-
   function callBotAPI(msg) {
     console.log("🤖 callBotAPI()", msg);
-    fetch("https://advanced-ai-backend.onrender.com/api/chat", {
+    fetch("https://eager-periwinkle-lan.glitch.me/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: msg })
@@ -111,18 +110,27 @@ document.addEventListener("DOMContentLoaded", () => {
         addMessage("Oops! The bot is currently unavailable.", "bot-message");
       });
   }
-
-  console.log("▶️ about to call fetch to /api/chat");
+  
+  console.log("▶️ about to call fetch to https://eager-periwinkle-lan.glitch.me/api/chat");
+  
 console.log("   window.fetch ===", window.fetch);
 
-  async function translateText(text, target) {
-    const res = await fetch('/api/chat' , {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q: text, source: 'auto', target: target, format: 'text' })
-    });
-    const { translatedText } = await res.json();
-    return translatedText;
+async function translateText(text, target) {
+  const res = await fetch('https://libretranslate.com/translate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      q: text,
+      source: 'auto',
+      target: target,
+      format: 'text'
+    })
+  });
+  const data = await res.json();
+  return data.translatedText;
+}
+
+  
   }
 
   function startListening() {

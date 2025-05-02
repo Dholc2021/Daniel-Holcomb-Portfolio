@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function callBotAPI(msg) {
     console.log("🤖 callBotAPI()", msg);
-    fetch("https://advanced-ai-backend.onrender.com/api/chat", {
+    fetch("https://eager-periwinkle-lan.glitch.me/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: msg })
@@ -113,13 +113,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function translateText(text, target) {
-    const res = await fetch('/api/chat', {
+    const res = await fetch('https://libretranslate.com/translate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q: text, source: 'auto', target: target, format: 'text' })
+      body: JSON.stringify({
+        q: text,
+        source: 'auto',
+        target: target,
+        format: 'text'
+      })
     });
-    const { translatedText } = await res.json();
-    return translatedText;
+    const data = await res.json();
+    return data.translatedText;
+  }
+  
   }
 
   function startListening() {
